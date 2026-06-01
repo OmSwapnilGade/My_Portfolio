@@ -65,7 +65,11 @@ function AnimatedNumber({ value, suffix, color }) {
   }, [isInView, value]);
 
   return (
-    <span ref={ref} className="text-4xl md:text-5xl font-bold" style={{ color }}>
+    <span
+      ref={ref}
+      className="text-4xl md:text-5xl font-bold stat-glow"
+      style={{ color }}
+    >
       {displayVal}
       <span className="text-xl md:text-2xl font-semibold">{suffix}</span>
     </span>
@@ -77,7 +81,7 @@ export default function AcademicPanel() {
     <SectionWrapper id="academics" className="section-gradient-1">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -93,7 +97,7 @@ export default function AcademicPanel() {
       </motion.div>
 
       {/* Academic Cards */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {academics.map((item, i) => (
           <motion.div
             key={item.title}
@@ -107,8 +111,8 @@ export default function AcademicPanel() {
               <div
                 className="w-12 h-12 rounded-xl mx-auto flex items-center justify-center mb-6"
                 style={{
-                  background: `${item.color}12`,
-                  boxShadow: `0 0 0 1px ${item.color}20`,
+                  background: `${item.color}15`,
+                  boxShadow: `0 0 0 1px ${item.color}25`,
                 }}
               >
                 <HiAcademicCap className="text-xl" style={{ color: item.color }} />
@@ -131,10 +135,12 @@ export default function AcademicPanel() {
               </p>
 
               {/* Institution */}
-              <div className="glass-subtle rounded-xl px-4 py-3.5 mt-auto">
+              <div className="inner-glass rounded-xl px-4 py-3.5 mt-auto">
                 <p className="text-xs text-text-secondary leading-relaxed">{item.institution}</p>
                 {item.subtitle && (
-                  <p className="text-[10px] text-accent-blue mt-1 font-medium">{item.subtitle}</p>
+                  <p className="text-[10px] mt-1 font-medium" style={{ color: '#60a5fa' }}>
+                    {item.subtitle}
+                  </p>
                 )}
               </div>
             </GlassCard>

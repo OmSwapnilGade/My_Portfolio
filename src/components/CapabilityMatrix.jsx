@@ -32,7 +32,7 @@ const categories = [
     description: 'Development environment',
     skills: [
       { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'GitHub', icon: SiGithub, color: '#6e7681' },
+      { name: 'GitHub', icon: SiGithub, color: '#e2e8f0' },
       { name: 'VS Code', icon: VscCode, color: '#007ACC' },
     ],
   },
@@ -43,7 +43,7 @@ export default function CapabilityMatrix() {
     <SectionWrapper id="skills" className="section-gradient-2">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -59,7 +59,7 @@ export default function CapabilityMatrix() {
       </motion.div>
 
       {/* Categories Grid */}
-      <div className="grid md:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-3 gap-8">
         {categories.map((category, catIdx) => (
           <motion.div
             key={category.title}
@@ -69,7 +69,7 @@ export default function CapabilityMatrix() {
             transition={{ delay: catIdx * 0.15, duration: 0.5 }}
           >
             {/* Category Header */}
-            <div className="mb-6">
+            <div className="text-center mb-6">
               <h3 className="text-lg font-semibold text-text-primary">{category.title}</h3>
               <p className="text-xs tracking-wide text-text-muted mt-1 uppercase">
                 {category.description}
@@ -90,11 +90,11 @@ export default function CapabilityMatrix() {
                   >
                     <GlassCard className="p-4 flex items-center gap-4 group cursor-default">
                       <div
-                        className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 
-                                    group-hover:scale-110 group-hover:shadow-lg"
+                        className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300
+                                    group-hover:scale-110"
                         style={{
                           background: `${skill.color}15`,
-                          boxShadow: `0 0 0 1px ${skill.color}20`,
+                          boxShadow: `0 0 0 1px ${skill.color}25`,
                         }}
                       >
                         <Icon
@@ -109,7 +109,10 @@ export default function CapabilityMatrix() {
                       <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div
                           className="w-2 h-2 rounded-full"
-                          style={{ background: skill.color }}
+                          style={{
+                            background: skill.color,
+                            boxShadow: `0 0 8px ${skill.color}60`,
+                          }}
                         />
                       </div>
                     </GlassCard>

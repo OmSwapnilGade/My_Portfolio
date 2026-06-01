@@ -12,7 +12,7 @@ const projects = [
     repoUrl: '#',
     demoUrl: '#',
     featured: true,
-    gradient: 'linear-gradient(135deg, rgba(34,211,238,0.06) 0%, rgba(59,130,246,0.04) 100%)',
+    gradient: 'linear-gradient(135deg, rgba(34,211,238,0.08) 0%, rgba(59,130,246,0.04) 100%)',
   },
   {
     title: 'CitySync',
@@ -23,7 +23,7 @@ const projects = [
     repoUrl: '#',
     demoUrl: '#',
     featured: true,
-    gradient: 'linear-gradient(135deg, rgba(167,139,250,0.06) 0%, rgba(59,130,246,0.04) 100%)',
+    gradient: 'linear-gradient(135deg, rgba(167,139,250,0.08) 0%, rgba(59,130,246,0.04) 100%)',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function MissionArchive() {
     <SectionWrapper id="projects" className="section-gradient-1">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -48,7 +48,7 @@ export default function MissionArchive() {
       </motion.div>
 
       {/* Project Cards */}
-      <div className="grid md:grid-cols-2 gap-8 items-stretch">
+      <div className="grid md:grid-cols-2 gap-6 items-stretch">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}

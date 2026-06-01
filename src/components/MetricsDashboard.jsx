@@ -23,47 +23,18 @@ const profiles = [
   {
     name: 'Codolio',
     icon: null,
-    color: '#6366f1',
+    color: '#818cf8',
     url: '#',
     description: 'Coding portfolio & analytics',
   },
 ];
-
-function AnimatedCounter({ target, suffix = '', duration = 2 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const increment = target / (duration * 60);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / 60);
-    return () => clearInterval(timer);
-  }, [isInView, target, duration]);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-}
 
 export default function MetricsDashboard() {
   return (
     <SectionWrapper id="metrics" className="section-gradient-2">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -79,7 +50,7 @@ export default function MetricsDashboard() {
       </motion.div>
 
       {/* Profile Cards */}
-      <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
         {profiles.map((profile, i) => {
           const Icon = profile.icon;
           return (
@@ -94,10 +65,10 @@ export default function MetricsDashboard() {
                 {/* Icon */}
                 <div
                   className="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center mb-5
-                              transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                              transition-all duration-300 group-hover:scale-110"
                   style={{
-                    background: `${profile.color}12`,
-                    boxShadow: `0 0 0 1px ${profile.color}20`,
+                    background: `${profile.color}15`,
+                    boxShadow: `0 0 0 1px ${profile.color}25`,
                   }}
                 >
                   {Icon ? (
@@ -122,13 +93,11 @@ export default function MetricsDashboard() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold
-                             glass text-text-primary transition-all duration-300
-                             hover:-translate-y-0.5 group/btn"
-                  onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.6)'}
-                  onMouseLeave={(e) => e.currentTarget.style.background = ''}
+                             inner-glass text-text-primary transition-all duration-300
+                             hover:-translate-y-0.5"
                 >
                   View Profile
-                  <HiOutlineExternalLink className="text-sm transition-opacity" style={{ opacity: 0.5 }} />
+                  <HiOutlineExternalLink className="text-sm" style={{ opacity: 0.5 }} />
                 </a>
               </GlassCard>
             </motion.div>

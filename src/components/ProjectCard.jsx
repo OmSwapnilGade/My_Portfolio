@@ -13,19 +13,22 @@ export default function ProjectCard({ project, index }) {
       <GlassCard className="h-full flex flex-col overflow-hidden border-gradient hover-glow">
         {/* Project Header */}
         <div
-          className="p-8 md:p-10 relative overflow-hidden"
+          className="p-6 md:p-8 relative overflow-hidden"
           style={{
             background: project.gradient,
           }}
         >
           <div
             className="absolute inset-0 scan-grid"
-            style={{ opacity: 0.22 }}
+            style={{ opacity: 0.15 }}
           />
 
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
+          <div className="relative z-10 text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <span
+                className="w-2 h-2 rounded-full animate-pulse"
+                style={{ background: '#22d3ee' }}
+              />
 
               <span className="text-[10px] tracking-[0.2em] uppercase text-text-muted font-mono">
                 Mission #{String(index + 1).padStart(2, '0')}
@@ -33,10 +36,11 @@ export default function ProjectCard({ project, index }) {
 
               {project.featured && (
                 <span
-                  className="ml-auto text-[10px] tracking-wider uppercase px-3 py-1 rounded-full font-semibold"
+                  className="ml-2 text-[10px] tracking-wider uppercase px-3 py-1 rounded-full font-semibold"
                   style={{
-                    background: 'rgba(34, 211, 238, 0.15)',
-                    color: '#3b82f6',
+                    background: 'rgba(34, 211, 238, 0.12)',
+                    color: '#22d3ee',
+                    border: '1px solid rgba(34, 211, 238, 0.2)',
                   }}
                 >
                   Featured
@@ -51,12 +55,12 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         {/* Body */}
-        <div className="p-8 md:p-10 flex flex-col flex-1 space-y-7">
+        <div className="p-6 md:p-8 flex flex-col flex-1 space-y-6 text-center">
           <div>
             <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-2">
               Mission Brief
             </h4>
-            <p className="text-text-secondary leading-relaxed">
+            <p className="text-text-secondary leading-relaxed text-sm">
               {project.brief}
             </p>
           </div>
@@ -65,7 +69,7 @@ export default function ProjectCard({ project, index }) {
             <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-2">
               Objective
             </h4>
-            <p className="text-text-secondary leading-relaxed">
+            <p className="text-text-secondary leading-relaxed text-sm">
               {project.objective}
             </p>
           </div>
@@ -75,11 +79,11 @@ export default function ProjectCard({ project, index }) {
               Tech Stack
             </h4>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-3">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="glass-subtle px-4 py-2 rounded-xl text-sm font-medium"
+                  className="inner-glass px-4 py-2 rounded-xl text-sm font-medium text-text-primary"
                 >
                   {tech}
                 </span>
@@ -88,12 +92,13 @@ export default function ProjectCard({ project, index }) {
           </div>
 
           {/* Buttons */}
-          <div className="mt-auto pt-8 flex gap-4">
+          <div className="mt-auto pt-6 flex gap-4">
             <a
               href={project.repoUrl || '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center px-5 py-3 rounded-xl glass font-semibold hover-glow"
+              className="flex-1 text-center px-5 py-3 rounded-xl text-sm font-semibold text-text-primary
+                         transition-all duration-300 hover:-translate-y-0.5 inner-glass"
             >
               Repository
             </a>
@@ -102,10 +107,11 @@ export default function ProjectCard({ project, index }) {
               href={project.demoUrl || '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center px-5 py-3 rounded-xl text-white font-semibold"
+              className="flex-1 text-center px-5 py-3 rounded-xl text-sm text-white font-semibold
+                         transition-all duration-300 hover:-translate-y-0.5"
               style={{
-                background:
-                  'linear-gradient(135deg, #22d3ee, #3b82f6)',
+                background: 'linear-gradient(135deg, #22d3ee, #3b82f6)',
+                boxShadow: '0 4px 20px rgba(34, 211, 238, 0.2)',
               }}
             >
               Live Demo

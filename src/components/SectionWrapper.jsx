@@ -10,20 +10,23 @@ export default function SectionWrapper({
 
   const isInView = useInView(ref, {
     once: true,
-    margin: '-80px',
+    margin: '-60px',
   });
 
   return (
     <motion.section
       ref={ref}
       id={id}
-      className={`relative w-full py-24 md:py-32 ${className}`}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className={`relative w-full py-10 md:py-14 ${className}`}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20">
-        {children}
+      <div className="w-full max-w-[1100px] mx-auto px-4 sm:px-6 md:px-8">
+        {/* Distinct glass card container for each section */}
+        <div className="section-glass-card">
+          {children}
+        </div>
       </div>
     </motion.section>
   );

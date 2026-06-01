@@ -70,7 +70,7 @@ export default function ScanHero({ onScanComplete }) {
             className="absolute left-0 right-0 h-[2px] z-10"
             style={{
               background: 'linear-gradient(90deg, transparent, #22d3ee, #3b82f6, #22d3ee, transparent)',
-              boxShadow: '0 0 20px rgba(34, 211, 238, 0.3)',
+              boxShadow: '0 0 30px rgba(34, 211, 238, 0.4)',
             }}
             initial={{ top: '0%' }}
             animate={{ top: ['0%', '100%', '0%'] }}
@@ -98,23 +98,23 @@ export default function ScanHero({ onScanComplete }) {
                 {/* Outer Ring */}
                 <motion.div
                   className="absolute inset-0 rounded-full"
-                  style={{ border: '2px solid rgba(34, 211, 238, 0.3)' }}
-                  animate={{ scale: [0.9, 1.05, 0.9], opacity: [0.3, 0.6, 0.3] }}
+                  style={{ border: '2px solid rgba(34, 211, 238, 0.4)' }}
+                  animate={{ scale: [0.9, 1.05, 0.9], opacity: [0.3, 0.7, 0.3] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                 />
                 {/* Middle Ring */}
                 <motion.div
                   className="absolute inset-3 rounded-full"
-                  style={{ border: '1px solid rgba(59, 130, 246, 0.2)' }}
-                  animate={{ scale: [1, 0.95, 1], opacity: [0.4, 0.7, 0.4] }}
+                  style={{ border: '1px solid rgba(59, 130, 246, 0.3)' }}
+                  animate={{ scale: [1, 0.95, 1], opacity: [0.4, 0.8, 0.4] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
                 />
                 {/* Inner Scanner */}
                 <motion.div
                   className="absolute inset-6 rounded-full"
                   style={{
-                    background: 'radial-gradient(circle, rgba(34,211,238,0.08) 0%, rgba(59,130,246,0.04) 50%, transparent 70%)',
-                    border: '1px solid rgba(34,211,238,0.2)',
+                    background: 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, rgba(59,130,246,0.06) 50%, transparent 70%)',
+                    border: '1px solid rgba(34,211,238,0.25)',
                   }}
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
@@ -130,7 +130,7 @@ export default function ScanHero({ onScanComplete }) {
                 {/* Center Dot */}
                 <motion.div
                   className="absolute inset-0 m-auto w-3 h-3 rounded-full"
-                  style={{ background: 'rgba(34, 211, 238, 0.6)' }}
+                  style={{ background: 'rgba(34, 211, 238, 0.8)' }}
                   animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 />
@@ -144,9 +144,9 @@ export default function ScanHero({ onScanComplete }) {
                   <motion.div
                     key={i}
                     className={`absolute ${pos} w-6 h-6 rounded-sm`}
-                    style={{ borderColor: 'rgba(34, 211, 238, 0.4)' }}
+                    style={{ borderColor: 'rgba(34, 211, 238, 0.5)' }}
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: [0, 0.8, 0.4] }}
+                    animate={{ opacity: [0, 0.9, 0.4] }}
                     transition={{ delay: 0.5 + i * 0.15, duration: 1, repeat: Infinity, repeatType: 'reverse' }}
                   />
                 ))}
@@ -156,7 +156,8 @@ export default function ScanHero({ onScanComplete }) {
               <motion.div className="space-y-4">
                 <motion.p
                   key={currentStep}
-                  className="text-sm md:text-base tracking-[0.2em] uppercase text-text-secondary font-medium"
+                  className="text-sm md:text-base tracking-[0.2em] uppercase font-medium"
+                  style={{ color: 'rgba(148, 163, 184, 0.9)' }}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
@@ -167,12 +168,13 @@ export default function ScanHero({ onScanComplete }) {
                 {/* Progress Bar */}
                 <div
                   className="w-64 md:w-80 h-1 rounded-full overflow-hidden mx-auto"
-                  style={{ background: 'rgba(224, 234, 255, 0.5)' }}
+                  style={{ background: 'rgba(255, 255, 255, 0.06)' }}
                 >
                   <motion.div
                     className="h-full rounded-full"
                     style={{
                       background: 'linear-gradient(90deg, #22d3ee, #3b82f6)',
+                      boxShadow: '0 0 10px rgba(34, 211, 238, 0.4)',
                     }}
                     animate={{ width: `${progress}%` }}
                     transition={{ duration: 0.1 }}
@@ -180,13 +182,15 @@ export default function ScanHero({ onScanComplete }) {
                 </div>
 
                 {/* Progress Percentage */}
-                <p className="text-xs tracking-[0.3em] text-text-muted font-mono">
+                <p className="text-xs tracking-[0.3em] font-mono" style={{ color: 'rgba(100, 116, 139, 0.8)' }}>
                   {progress}%
                 </p>
               </motion.div>
 
               {/* Data Indicators */}
-              <div className="flex gap-8 text-[10px] tracking-[0.15em] uppercase text-text-muted font-mono">
+              <div className="flex gap-8 text-[10px] tracking-[0.15em] uppercase font-mono"
+                style={{ color: 'rgba(100, 116, 139, 0.7)' }}
+              >
                 {['SYS:ACTIVE', 'NET:SECURE', 'DB:SYNCED'].map((label, i) => (
                   <motion.span
                     key={label}
@@ -197,7 +201,7 @@ export default function ScanHero({ onScanComplete }) {
                   >
                     <span
                       className="inline-block w-1.5 h-1.5 rounded-full"
-                      style={{ background: 'rgba(34, 211, 238, 0.6)' }}
+                      style={{ background: 'rgba(34, 211, 238, 0.7)' }}
                     />
                     {label}
                   </motion.span>
@@ -214,12 +218,15 @@ export default function ScanHero({ onScanComplete }) {
             >
               {/* System Status Badge */}
               <motion.div
-                className="glass-subtle px-5 py-2 rounded-full text-xs tracking-[0.2em] uppercase text-text-secondary font-medium"
+                className="glass-subtle px-5 py-2 rounded-full text-xs tracking-[0.2em] uppercase font-medium"
+                style={{ color: 'rgba(148, 163, 184, 0.9)' }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={showContent ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.1 }}
               >
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-green-400 mr-2 align-middle" />
+                <span className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle"
+                  style={{ background: '#34d399' }}
+                />
                 System Online — Profile Verified
               </motion.div>
 
@@ -235,7 +242,8 @@ export default function ScanHero({ onScanComplete }) {
 
               {/* Name */}
               <motion.p
-                className="text-subheading text-text-secondary"
+                className="text-subheading"
+                style={{ color: 'rgba(148, 163, 184, 0.9)' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.35, duration: 0.6 }}
@@ -253,13 +261,20 @@ export default function ScanHero({ onScanComplete }) {
                 {descriptorTags.map((tag, i) => (
                   <motion.span
                     key={tag}
-                    className="glass-subtle px-5 py-2.5 rounded-full text-sm text-text-primary font-medium
+                    className="glass-subtle px-5 py-2.5 rounded-full text-sm font-medium
                                transition-all duration-300"
-                    style={{ border: '1px solid rgba(255,255,255,0.2)' }}
+                    style={{
+                      color: '#e2e8f0',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={showContent ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: 0.6 + i * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{
+                      scale: 1.05,
+                      y: -2,
+                      borderColor: 'rgba(34, 211, 238, 0.3)',
+                    }}
                   >
                     {tag}
                   </motion.span>
@@ -279,16 +294,19 @@ export default function ScanHero({ onScanComplete }) {
                              transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: 'linear-gradient(135deg, #22d3ee, #3b82f6)',
-                    boxShadow: '0 4px 20px rgba(34, 211, 238, 0.25)',
+                    boxShadow: '0 4px 25px rgba(34, 211, 238, 0.3)',
                   }}
                 >
                   Access Mission Archive
                 </a>
                 <a
                   href="#skills"
-                  className="glass px-9 py-4 rounded-2xl text-sm font-semibold tracking-wide text-text-primary
+                  className="glass px-9 py-4 rounded-2xl text-sm font-semibold tracking-wide
                              transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ borderColor: 'rgba(255,255,255,0.3)' }}
+                  style={{
+                    color: '#e2e8f0',
+                    borderColor: 'rgba(255,255,255,0.12)',
+                  }}
                 >
                   Open Capability Matrix
                 </a>
@@ -303,13 +321,13 @@ export default function ScanHero({ onScanComplete }) {
               >
                 <motion.div
                   className="w-6 h-10 rounded-full flex items-start justify-center p-1.5"
-                  style={{ border: '2px solid rgba(148, 163, 184, 0.3)' }}
+                  style={{ border: '2px solid rgba(148, 163, 184, 0.2)' }}
                   animate={{ y: [0, 5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <motion.div
                     className="w-1 h-2 rounded-full"
-                    style={{ background: 'rgba(34, 211, 238, 0.6)' }}
+                    style={{ background: 'rgba(34, 211, 238, 0.7)' }}
                     animate={{ y: [0, 12, 0], opacity: [1, 0.3, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -323,15 +341,15 @@ export default function ScanHero({ onScanComplete }) {
       {/* Background Gradient Orbs */}
       <div
         className="absolute top-1/4 -left-32 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'rgba(34, 211, 238, 0.05)' }}
+        style={{ background: 'rgba(34, 211, 238, 0.06)' }}
       />
       <div
         className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'rgba(59, 130, 246, 0.05)' }}
+        style={{ background: 'rgba(59, 130, 246, 0.06)' }}
       />
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none"
-        style={{ background: 'rgba(167, 139, 250, 0.03)' }}
+        style={{ background: 'rgba(167, 139, 250, 0.04)' }}
       />
     </section>
   );

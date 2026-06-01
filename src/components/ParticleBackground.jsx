@@ -16,16 +16,20 @@ export default function ParticleBackground() {
 
     const createParticles = () => {
       particles = [];
-      const count = Math.floor((canvas.width * canvas.height) / 25000);
+      const count = Math.floor((canvas.width * canvas.height) / 30000);
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.3,
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.4 + 0.1,
-          color: Math.random() > 0.5 ? '34, 211, 238' : '59, 130, 246',
+          size: Math.random() * 1.8 + 0.5,
+          speedX: (Math.random() - 0.5) * 0.25,
+          speedY: (Math.random() - 0.5) * 0.25,
+          opacity: Math.random() * 0.5 + 0.15,
+          color: Math.random() > 0.6
+            ? '34, 211, 238'
+            : Math.random() > 0.3
+              ? '59, 130, 246'
+              : '167, 139, 250',
         });
       }
     };
@@ -54,11 +58,11 @@ export default function ParticleBackground() {
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 100) {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(34, 211, 238, ${0.03 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(34, 211, 238, ${0.06 * (1 - dist / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -72,14 +76,16 @@ export default function ParticleBackground() {
     createParticles();
     animate();
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resize();
       createParticles();
-    });
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

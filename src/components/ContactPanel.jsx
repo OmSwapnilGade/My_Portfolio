@@ -10,7 +10,7 @@ const contacts = [
     icon: FaGithub,
     url: 'https://github.com/OmSwapnilGade',
     handle: '@OmSwapnilGade',
-    color: '#6e7681',
+    color: '#e2e8f0',
     description: 'Source code & repositories',
   },
   {
@@ -36,7 +36,7 @@ export default function ContactPanel() {
     <SectionWrapper id="contact" className="section-gradient-1">
       {/* Section Header */}
       <motion.div
-        className="text-center mb-16"
+        className="text-center mb-12"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -52,7 +52,7 @@ export default function ContactPanel() {
       </motion.div>
 
       {/* Contact Cards */}
-      <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
         {contacts.map((contact, i) => {
           const Icon = contact.icon;
           return (
@@ -73,10 +73,10 @@ export default function ContactPanel() {
                   {/* Icon */}
                   <div
                     className="w-14 h-14 rounded-xl mx-auto flex items-center justify-center mb-5
-                                transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                                transition-all duration-300 group-hover:scale-110"
                     style={{
                       background: `${contact.color}12`,
-                      boxShadow: `0 0 0 1px ${contact.color}20`,
+                      boxShadow: `0 0 0 1px ${contact.color}25`,
                     }}
                   >
                     <Icon className="text-2xl" style={{ color: contact.color }} />
@@ -104,8 +104,8 @@ export default function ContactPanel() {
 
       {/* Footer */}
       <motion.div
-        className="text-center mt-24 pt-10"
-        style={{ borderTop: '1px solid rgba(255,255,255,0.2)' }}
+        className="text-center mt-16 pt-8"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -114,7 +114,7 @@ export default function ContactPanel() {
         <p className="text-xs tracking-[0.15em] text-text-muted uppercase">
           Designed & Built by Om Swapnil Gade
         </p>
-        <p className="text-[10px] mt-2 tracking-wider" style={{ color: 'rgba(148, 163, 184, 0.6)' }}>
+        <p className="text-[10px] mt-2 tracking-wider" style={{ color: 'rgba(100, 116, 139, 0.5)' }}>
           © {new Date().getFullYear()} — All systems operational
         </p>
       </motion.div>
