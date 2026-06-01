@@ -4,28 +4,33 @@ import GlassCard from './GlassCard';
 export default function ProjectCard({ project, index }) {
   return (
     <motion.div
+      className="h-full"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2, duration: 0.6 }}
     >
-      <GlassCard className="p-0 overflow-hidden group border-gradient">
+      <GlassCard className="h-full flex flex-col overflow-hidden border-gradient hover-glow">
         {/* Project Header */}
         <div
-          className="p-7 md:p-9 relative overflow-hidden"
+          className="p-8 md:p-10 relative overflow-hidden"
           style={{
             background: project.gradient,
           }}
         >
-          {/* Decorative Grid */}
-          <div className="absolute inset-0 scan-grid" style={{ opacity: 0.3 }} />
+          <div
+            className="absolute inset-0 scan-grid"
+            style={{ opacity: 0.22 }}
+          />
 
           <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
+
               <span className="text-[10px] tracking-[0.2em] uppercase text-text-muted font-mono">
                 Mission #{String(index + 1).padStart(2, '0')}
               </span>
+
               {project.featured && (
                 <span
                   className="ml-auto text-[10px] tracking-wider uppercase px-3 py-1 rounded-full font-semibold"
@@ -38,40 +43,43 @@ export default function ProjectCard({ project, index }) {
                 </span>
               )}
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-text-primary group-hover:text-accent-blue transition-colors duration-300">
+
+            <h3 className="text-2xl md:text-3xl font-bold text-text-primary leading-tight">
               {project.title}
             </h3>
           </div>
         </div>
 
-        {/* Project Body */}
-        <div className="p-7 md:p-9 space-y-6">
-          {/* Mission Brief */}
+        {/* Body */}
+        <div className="p-8 md:p-10 flex flex-col flex-1 space-y-7">
           <div>
             <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-2">
               Mission Brief
             </h4>
-            <p className="text-text-secondary text-sm leading-relaxed">{project.brief}</p>
+            <p className="text-text-secondary leading-relaxed">
+              {project.brief}
+            </p>
           </div>
 
-          {/* Objective */}
           <div>
             <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-2">
               Objective
             </h4>
-            <p className="text-text-secondary text-sm leading-relaxed">{project.objective}</p>
+            <p className="text-text-secondary leading-relaxed">
+              {project.objective}
+            </p>
           </div>
 
-          {/* Tech Stack */}
           <div>
-            <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-2">
+            <h4 className="text-xs tracking-[0.15em] uppercase text-text-muted font-semibold mb-3">
               Tech Stack
             </h4>
-            <div className="flex flex-wrap gap-2">
+
+            <div className="flex flex-wrap gap-3">
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="glass-subtle px-3.5 py-1.5 rounded-lg text-xs font-medium text-text-primary"
+                  className="glass-subtle px-4 py-2 rounded-xl text-sm font-medium"
                 >
                   {tech}
                 </span>
@@ -79,30 +87,25 @@ export default function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-3 pt-3">
+          {/* Buttons */}
+          <div className="mt-auto pt-8 flex gap-4">
             <a
               href={project.repoUrl || '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center px-5 py-3 rounded-xl text-sm font-semibold 
-                         glass text-text-primary transition-all duration-300
-                         hover:-translate-y-0.5"
-              style={{ cursor: 'pointer' }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.6)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = ''}
+              className="flex-1 text-center px-5 py-3 rounded-xl glass font-semibold hover-glow"
             >
               Repository
             </a>
+
             <a
               href={project.demoUrl || '#'}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center px-5 py-3 rounded-xl text-sm font-semibold text-white
-                         transition-all duration-300 hover:-translate-y-0.5"
+              className="flex-1 text-center px-5 py-3 rounded-xl text-white font-semibold"
               style={{
-                background: 'linear-gradient(135deg, #22d3ee, #3b82f6)',
-                boxShadow: '0 4px 15px rgba(34, 211, 238, 0.2)',
+                background:
+                  'linear-gradient(135deg, #22d3ee, #3b82f6)',
               }}
             >
               Live Demo
