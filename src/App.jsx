@@ -18,19 +18,6 @@ export default function App() {
     setScanComplete(true);
   }, []);
 
-  // Auto-scroll to dashboard 5 seconds after scan completes
-  useEffect(() => {
-    if (!scanComplete) return;
-
-    const scrollTimer = setTimeout(() => {
-      dashboardRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }, 5000);
-
-    return () => clearTimeout(scrollTimer);
-  }, [scanComplete]);
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden"

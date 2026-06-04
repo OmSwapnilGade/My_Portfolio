@@ -48,7 +48,7 @@ export default function MissionArchive() {
       </motion.div>
 
       {/* Project Cards */}
-      <div className="grid md:grid-cols-2 gap-6 items-stretch">
+      <div className="grid md:grid-cols-2 gap-10 items-stretch">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}

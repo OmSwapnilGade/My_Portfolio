@@ -50,7 +50,7 @@ export default function MetricsDashboard() {
       </motion.div>
 
       {/* Profile Cards */}
-      <div className="grid sm:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid sm:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {profiles.map((profile, i) => {
           const Icon = profile.icon;
           return (

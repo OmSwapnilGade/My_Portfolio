@@ -93,7 +93,7 @@ export default function AboutCard() {
       </div>
 
       {/* Metadata Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
         {metadata.map((item, i) => (
           <motion.div
             key={item.label}

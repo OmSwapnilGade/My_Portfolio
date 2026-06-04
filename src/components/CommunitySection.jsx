@@ -24,7 +24,7 @@ export default function CommunitySection() {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
         {/* Community */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

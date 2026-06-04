@@ -14,10 +14,21 @@ export default function Navbar({ visible }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
+    let scrollTimeout;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
+      setIsAtTop(window.scrollY < (window.innerHeight || 800) - 100);
+      
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        setIsScrolling(false);
+      }, 1000);
 
       const sections = navLinks.map((l) => l.href.slice(1));
 
@@ -32,7 +43,10 @@ export default function Navbar({ visible }) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   const handleClick = (href) => {
@@ -48,7 +62,10 @@ export default function Navbar({ visible }) {
     <motion.nav
       className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50"
       initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={{ 
+        y: isAtTop || isScrolling ? 0 : -80, 
+        opacity: isAtTop || isScrolling ? 1 : 0 
+      }}
       transition={{ duration: 0.6 }}
     >
       <div
@@ -75,7 +92,7 @@ export default function Navbar({ visible }) {
             }
             className="text-xl font-bold gradient-text tracking-tight"
           >
-            OSG.
+            OG
           </button>
 
           {/* Desktop Nav */}

@@ -52,7 +52,7 @@ export default function ContactPanel() {
       </motion.div>
 
       {/* Contact Cards */}
-      <div className="grid sm:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid sm:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {contacts.map((contact, i) => {
           const Icon = contact.icon;
           return (

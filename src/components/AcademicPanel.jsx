@@ -97,7 +97,7 @@ export default function AcademicPanel() {
       </motion.div>
 
       {/* Academic Cards */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {academics.map((item, i) => (
           <motion.div
             key={item.title}

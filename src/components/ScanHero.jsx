@@ -17,6 +17,8 @@ export default function ScanHero({ onScanComplete }) {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [showContent, setShowContent] = useState(false);
+  const [nameText, setNameText] = useState("");
+  const fullText = "Hi, I am Om Swapnil Gade";
 
   useEffect(() => {
     // Progress counter
@@ -47,6 +49,22 @@ export default function ScanHero({ onScanComplete }) {
       clearTimeout(completeTimer);
     };
   }, [onScanComplete]);
+
+  useEffect(() => {
+    if (showContent) {
+      let i = 0;
+      const interval = setInterval(() => {
+        setNameText(fullText.slice(0, i + 1));
+        i++;
+        if (i >= fullText.length) {
+          clearInterval(interval);
+        }
+      }, 6000 / fullText.length);
+      return () => clearInterval(interval);
+    } else {
+      setNameText("");
+    }
+  }, [showContent, fullText]);
 
   return (
     <section id="hero" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
@@ -231,25 +249,32 @@ export default function ScanHero({ onScanComplete }) {
               </motion.div>
 
               {/* Main Headline */}
-              <motion.h1
-                className="text-display gradient-text"
+              <motion.h2
+                className="text-subheading tracking-widest uppercase font-semibold"
+                style={{ color: 'rgba(148, 163, 184, 0.9)' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2, duration: 0.6 }}
               >
                 Developer Identity: Detected
-              </motion.h1>
+              </motion.h2>
 
               {/* Name */}
-              <motion.p
-                className="text-subheading"
-                style={{ color: 'rgba(148, 163, 184, 0.9)' }}
+              <motion.h1
+                className="text-display gradient-text mt-2 mb-2 min-h-[1.2em]"
+                style={{ fontFamily: "'VT323', monospace" }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.35, duration: 0.6 }}
               >
-                Om Swapnil Gade
-              </motion.p>
+                {nameText}
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block ml-1 w-1 md:w-1.5 h-[0.85em] align-middle rounded-sm"
+                  style={{ background: '#22d3ee' }}
+                />
+              </motion.h1>
 
               {/* Descriptor Tags */}
               <motion.div

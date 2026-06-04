@@ -59,7 +59,7 @@ export default function CapabilityMatrix() {
       </motion.div>
 
       {/* Categories Grid */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-12">
         {categories.map((category, catIdx) => (
           <motion.div
             key={category.title}
