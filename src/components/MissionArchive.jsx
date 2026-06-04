@@ -42,7 +42,7 @@ export default function MissionArchive() {
           // Project Database
         </span>
         <h2 className="text-heading gradient-text mt-3">Mission Archive</h2>
-        <p className="text-text-secondary mt-4 max-w-md mx-auto text-base">
+        <p className="text-center mb-12">
           Projects built, lessons learned, solutions deployed
         </p>
       </motion.div>

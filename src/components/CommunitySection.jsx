@@ -19,12 +19,12 @@ export default function CommunitySection() {
           // Network & Credentials
         </span>
         <h2 className="text-heading gradient-text mt-3">Community & Certifications</h2>
-        <p className="text-text-secondary mt-4 max-w-md mx-auto text-base">
+        <p className="text-center mb-12">
           Professional networks and recognized achievements
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
         {/* Community */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

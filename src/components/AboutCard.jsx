@@ -30,7 +30,7 @@ export default function AboutCard() {
       </motion.div>
 
       {/* Bio Content — Center Justified */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
+      <div className="text-center mb-12">
         <motion.p
           className="text-text-secondary leading-relaxed text-sm md:text-base mb-5"
           initial={{ opacity: 0, y: 15 }}
@@ -93,7 +93,7 @@ export default function AboutCard() {
       </div>
 
       {/* Metadata Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
         {metadata.map((item, i) => (
           <motion.div
             key={item.label}

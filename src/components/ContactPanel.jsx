@@ -46,13 +46,13 @@ export default function ContactPanel() {
           // Establish Connection
         </span>
         <h2 className="text-heading gradient-text mt-3">Secure Communication Channel</h2>
-        <p className="text-text-secondary mt-4 max-w-md mx-auto text-base">
+        <p className="text-center mb-12">
           Open a direct transmission line
         </p>
       </motion.div>
 
       {/* Contact Cards */}
-      <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+      <div className="grid sm:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {contacts.map((contact, i) => {
           const Icon = contact.icon;
           return (

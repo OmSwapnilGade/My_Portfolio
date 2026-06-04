@@ -91,13 +91,13 @@ export default function AcademicPanel() {
           // Academic Records
         </span>
         <h2 className="text-heading gradient-text mt-3">Academic Database</h2>
-        <p className="text-text-secondary mt-4 max-w-md mx-auto text-base">
+        <p className="text-center mb-12">
           Educational journey and academic achievements
         </p>
       </motion.div>
 
       {/* Academic Cards */}
-      <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {academics.map((item, i) => (
           <motion.div
             key={item.title}

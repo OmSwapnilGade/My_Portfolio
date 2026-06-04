@@ -53,7 +53,7 @@ export default function CapabilityMatrix() {
           // Technical Analysis
         </span>
         <h2 className="text-heading gradient-text mt-3">Capability Matrix</h2>
-        <p className="text-text-secondary mt-4 max-w-md mx-auto text-base">
+        <p className="text-center mb-12">
           Technologies and tools powering the development workflow
         </p>
       </motion.div>
