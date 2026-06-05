@@ -33,6 +33,15 @@ const academics = [
     subtitle: 'Second-Year Engineering Student',
     color: '#a78bfa',
   },
+  {
+    title: 'JEE Mains',
+    institution: 'Joint Entrance Examination',
+    board: 'NTA',
+    metric: '99.65',
+    metricSuffix: '%ile',
+    metricLabel: 'Percentile',
+    color: '#34d399',
+  },
 ];
 
 function AnimatedNumber({ value, suffix, color }) {
@@ -97,7 +106,7 @@ export default function AcademicPanel() {
       </motion.div>
 
       {/* Academic Cards */}
-      <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-[1400px] mx-auto">
         {academics.map((item, i) => (
           <motion.div
             key={item.title}

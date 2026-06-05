@@ -56,7 +56,7 @@ export default function App() {
 
         {/* Dashboard Sections */}
         {scanComplete && (
-          <div ref={dashboardRef} id="dashboard">
+          <div ref={dashboardRef} id="dashboard" className="flex flex-col gap-8 md:gap-16 pb-24 pt-8">
             <AboutCard />
             <CapabilityMatrix />
             <MissionArchive />
