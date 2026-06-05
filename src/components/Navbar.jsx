@@ -23,7 +23,7 @@ export default function Navbar({ visible }) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
       setIsAtTop(window.scrollY < (window.innerHeight || 800) - 100);
-      
+
       setIsScrolling(true);
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {
@@ -62,16 +62,15 @@ export default function Navbar({ visible }) {
     <motion.nav
       className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl z-50"
       initial={{ y: -80, opacity: 0 }}
-      animate={{ 
-        y: isAtTop || isScrolling ? 0 : -80, 
-        opacity: isAtTop || isScrolling ? 1 : 0 
+      animate={{
+        y: isAtTop || isScrolling ? 0 : -80,
+        opacity: isAtTop || isScrolling ? 1 : 0
       }}
       transition={{ duration: 0.6 }}
     >
       <div
-        className={`rounded-2xl transition-all duration-500 ${
-          scrolled ? '' : ''
-        }`}
+        className={`rounded-2xl transition-all duration-500 ${scrolled ? '' : ''
+          }`}
         style={{
           background: scrolled
             ? 'rgba(10, 15, 28, 0.85)'
@@ -90,13 +89,13 @@ export default function Navbar({ visible }) {
             onClick={() =>
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }
-            className="text-xl font-bold gradient-text tracking-tight"
+            className="text-xl font-bold gradient-text tracking-tight ml-8 md:ml-16"
           >
             OG
           </button>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2 lg:gap-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-[1.25rem] p-1.5 shadow-inner">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -145,7 +144,7 @@ export default function Navbar({ visible }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
             >
-              <div className="space-y-1">
+              <div className="space-y-2">
                 {navLinks.map((link) => (
                   <button
                     key={link.href}

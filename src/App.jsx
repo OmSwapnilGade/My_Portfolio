@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import ParticleBackground from './components/ParticleBackground';
+import CyberBackground from './components/CyberBackground';
 import ScanHero from './components/ScanHero';
 import Navbar from './components/Navbar';
 import AboutCard from './components/AboutCard';
@@ -23,8 +23,8 @@ export default function App() {
     <div className="relative min-h-screen w-full overflow-x-hidden"
       style={{ background: '#0a0f1c' }}
     >
-      {/* Particle Background */}
-      <ParticleBackground />
+      {/* Cyber Background */}
+      <CyberBackground />
 
       {/* Navigation */}
       <Navbar visible={scanComplete} />

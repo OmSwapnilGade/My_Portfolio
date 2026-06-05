@@ -30,7 +30,7 @@ export default function AboutCard() {
       </motion.div>
 
       {/* Bio Content — Center Justified */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-20">
         <motion.p
           className="text-text-secondary leading-relaxed text-sm md:text-base mb-5"
           initial={{ opacity: 0, y: 15 }}
@@ -62,7 +62,7 @@ export default function AboutCard() {
         </motion.p>
 
         <motion.p
-          className="text-text-secondary leading-relaxed text-sm md:text-base mb-8"
+          className="text-text-secondary leading-relaxed text-sm md:text-base mb-14"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -71,6 +71,9 @@ export default function AboutCard() {
           I believe growth happens by building — one project, one
           bug, and one breakthrough at a time.
         </motion.p>
+
+        {/* Spacer before quote */}
+        <div className="h-10 md:h-8 w-full"></div>
 
         {/* Quote */}
         <motion.div
@@ -91,6 +94,9 @@ export default function AboutCard() {
           </p>
         </motion.div>
       </div>
+
+      {/* Spacer after quote */}
+      <div className="h-12 md:h-8 w-full"></div>
 
       {/* Metadata Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
